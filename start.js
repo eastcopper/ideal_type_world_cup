@@ -35,15 +35,21 @@ for (let i = 0; i<files.length; i++) {
     imgs[i].src = files[i];// 이미지 미리 로딩
 }
 
-img1.src = imgs[0];
-img2.src = imgs[1];
 
-let next = 2;
+img1.src = imgs[0].src;
+img2.src = imgs[1].src;
 
-function change1(img) {
-    img1.src = imgs[next].src;
-    next++;
-    if(next == 9) {
-        next = 0;
+let next1 = 2;
+let next2 = 3;
+
+function change(img) {
+    img1.src = imgs[next1].src;
+    img2.src = imgs[next2].src;
+    next1+=2;
+    next2+=2;
+
+    if(next1 >= 9) {
+        next1 = 0;
     }
 }
+
