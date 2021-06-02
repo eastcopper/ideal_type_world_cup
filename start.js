@@ -15,7 +15,6 @@ let Arr = new Array();
 for (var i = 0; i < 8; i++) {
     Arr.push(0);
 }
-// [0,0,0....0]
 
 let AnyArr = [];
 
@@ -50,24 +49,22 @@ for (let i = 0; i < files.length; i++) {
     imgs[i].src = files[i];// 이미지 미리 로딩
 }
 
+let indexNum = 0;
 
-img1.src = imgs[0].src;
-img2.src = imgs[1].src;
+img1.src = imgs[indexNum].src;
+img2.src = imgs[indexNum + 1].src;
 
-let next1 = 2;
-let next2 = 3;
-
-function change() {
-    img1.src = imgs[next1].src;
-    img2.src = imgs[next2].src;
-    next1 += 2;
-    next2 += 2;
-
-    if (next1 >= 9 && next2 >= 9) {
-        next1 = 0;
-        next2 = 0;
+function change(e) {
+    console.log(indexNum)
+    if(e.id === "img1"){
+        Arr[indexNum]++;
+    }else{
+        Arr[indexNum+1]++;
     }
-}
-for (let i = 0; i < files.length; i++) {
-
+    if (indexNum >= 6) {
+        console.log(Arr)
+    }
+    indexNum+=2;
+    img1.src = imgs[indexNum].src;
+    img2.src = imgs[indexNum+1].src;
 }
