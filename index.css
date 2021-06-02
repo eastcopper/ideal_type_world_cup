@@ -3,7 +3,7 @@
 }
 
 #mainWorld {
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     width: 250px;
     height: 260px;
