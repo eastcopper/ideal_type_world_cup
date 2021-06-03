@@ -25,7 +25,7 @@ for (let i = 0; i < files.length; i++) {
 let round = files.length;
 
 Array.prototype.shuffle = function () {
-    let length = this.length;
+    
 
     while (round) {
         let index = Math.floor((round--) * Math.random());
