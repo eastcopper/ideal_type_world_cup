@@ -17,6 +17,7 @@ for (var i = 0; i < 8; i++) {
 }
 
 let sum = [];
+let sum1 = [];
 
 let round = files.length;
 
@@ -73,6 +74,7 @@ function change(e) {
             for (let i = 0; i < 8; i++) {
                 if (files[i] == 0) {
                     files.splice(i, 1); // 배열 제외
+                    Arr.splice(i, 1);
                     i--;
                 }
             }
@@ -87,9 +89,9 @@ function change(e) {
 
             for (let i = 0; i < 4; i++) {
                 sum[i] = files[i];
-                console.log(sum[i])
+                // console.log(sum[i])
             }
-            
+
             img1.src = imgs4[indexNum].src
             img2.src = imgs4[indexNum + 1].src
         }
@@ -104,24 +106,22 @@ function change(e) {
         } else {
             Arr[indexNum + 1]++;
         }
+
         indexNum += 2;
 
 
         if (indexNum >= 4) {
             for (let i = 0; i < 4; i++) {
-                if (Arr[i] == 0) {
+                if (Arr[i] == 1) {
                     sum[i] = Arr[i];
                 }
             }
             for (let i = 0; i < 4; i++) {
-                if (sum[i] == 0) {
+                if (sum[i] == 1) {
                     sum.splice(i, 1); // 배열 제외
+                    Arr.splice(i, 1);
                     i--;
                 }
-            }
-
-            for (let i = 0; i < 4; i++) {
-                console.log(sum[i])
             }
 
             indexNum = 0;
@@ -132,8 +132,11 @@ function change(e) {
                 imgs2[i].src = sum[i];// 이미지 미리 로딩
             }
 
-            console.log(sum[1])
-            
+            for (let i = 0; i < 2; i++) {
+                sum1[i] = sum[i];
+                // console.log(sum1[i])
+            }
+
             img1.src = imgs2[indexNum].src
             img2.src = imgs2[indexNum + 1].src
         }
