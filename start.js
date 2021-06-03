@@ -1,5 +1,6 @@
 const img1 = document.getElementById('img1');
 const img2 = document.getElementById('img2');
+const round = document.getElementById('round');
 
 let files = ["./asset/1.png",
     "./asset/2.png",
@@ -19,17 +20,15 @@ for (var i = 0; i < 8; i++) {
 let sum = [];
 let sum1 = [];
 
-let round = files.length;
+let length = files.length;
 
 Array.prototype.shuffle = function () {
-    let length = this.length;
+    while (length) {
+        let index = Math.floor((length--) * Math.random());
 
-    while (round) {
-        let index = Math.floor((round--) * Math.random());
+        let temp = this[length];
 
-        let temp = this[round];
-
-        this[round] = this[index];
+        this[length] = this[index];
 
         this[index] = temp; // 배열 랜덤
     }
@@ -89,7 +88,7 @@ function change(e) {
 
             for (let i = 0; i < 4; i++) {
                 sum[i] = files[i];
-                // console.log(sum[i])
+                console.log(sum[i])
             }
 
             img1.src = imgs4[indexNum].src
@@ -101,6 +100,7 @@ function change(e) {
         }
     } // 8강
     else if (roundNum == 4) {
+        round.innerHTML = "<div>4강</div>"
         if (e.id === "img1") {
             Arr[indexNum]++;
         } else {
@@ -134,7 +134,7 @@ function change(e) {
 
             for (let i = 0; i < 2; i++) {
                 sum1[i] = sum[i];
-                // console.log(sum1[i])
+                console.log(sum1[i])
             }
 
             img1.src = imgs2[indexNum].src
