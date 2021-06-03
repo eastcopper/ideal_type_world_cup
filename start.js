@@ -44,7 +44,7 @@ let imgs2 = new Array();
 
 for (let i = 0; i < files.length; i++) {
     imgs8[i] = new Image();
-    imgs8[i].src = files[i];// 이미지 미리 로딩
+    imgs8[i].src = files[i];// 이미지 로딩
 }
 
 let indexNum = 0;
@@ -80,19 +80,20 @@ function change(e) {
 
             indexNum = 0;
             roundNum = 4;
-
-            for (let i = 0; i < 4; i++) {
-                imgs4[i] = new Image();
-                imgs4[i].src = files[i];// 이미지 미리 로딩
-            }
-
+            
             for (let i = 0; i < 4; i++) {
                 sum[i] = files[i];
                 console.log(sum[i])
             }
 
+            for (let i = 0; i < 4; i++) {
+                imgs4[i] = new Image();
+                imgs4[i].src = files[i];
+            }
+
             img1.src = imgs4[indexNum].src
             img2.src = imgs4[indexNum + 1].src
+            round.innerHTML = "<div>4강</div>"
         }
         else if (indexNum < 8) {
             img1.src = imgs8[indexNum].src;
@@ -100,7 +101,6 @@ function change(e) {
         }
     } // 8강
     else if (roundNum == 4) {
-        round.innerHTML = "<div>4강</div>"
         if (e.id === "img1") {
             Arr[indexNum]++;
         } else {
@@ -118,7 +118,7 @@ function change(e) {
             }
             for (let i = 0; i < 4; i++) {
                 if (sum[i] == 1) {
-                    sum.splice(i, 1); // 배열 제외
+                    sum.splice(i, 1);
                     Arr.splice(i, 1);
                     i--;
                 }
@@ -129,7 +129,7 @@ function change(e) {
 
             for (let i = 0; i < 2; i++) {
                 imgs2[i] = new Image();
-                imgs2[i].src = sum[i];// 이미지 미리 로딩
+                imgs2[i].src = sum[i];
             }
 
             for (let i = 0; i < 2; i++) {
@@ -139,10 +139,20 @@ function change(e) {
 
             img1.src = imgs2[indexNum].src
             img2.src = imgs2[indexNum + 1].src
+            round.innerHTML = "<div>결승</div>"
         }
         else if (indexNum < 4) {
             img1.src = imgs4[indexNum].src;
             img2.src = imgs4[indexNum + 1].src;
         }
-    }// 4강
+    } // 4강
+    else if (roundNum == 2) {
+        if (e.id === "img1") {
+            img2.remove();
+            round.innerHTML = "<div>우승</div>"
+        } else {    
+            img1.remove();
+            round.innerHTML = "<div>우승</div>"
+        }
+    } // 결승
 }
