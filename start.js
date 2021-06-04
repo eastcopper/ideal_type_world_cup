@@ -20,7 +20,7 @@ for (var i = 0; i < 8; i++) {
 let sum = [];
 let sum1 = [];
 
-let length = files.length;
+let length = files.length
 
 Array.prototype.shuffle = function () {
     while (length) {
@@ -83,7 +83,6 @@ function change(e) {
             
             for (let i = 0; i < 4; i++) {
                 sum[i] = files[i];
-                console.log(sum[i])
             }
 
             for (let i = 0; i < 4; i++) {
@@ -134,7 +133,6 @@ function change(e) {
 
             for (let i = 0; i < 2; i++) {
                 sum1[i] = sum[i];
-                console.log(sum1[i])
             }
 
             img1.src = imgs2[indexNum].src
