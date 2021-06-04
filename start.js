@@ -51,10 +51,13 @@ let indexNum = 0;
 
 img1.src = imgs8[indexNum].src;
 img2.src = imgs8[indexNum + 1].src;
+// 사진 두개씩 띄워주는 거
 
 let roundNum = 8;
+// 토너먼트 라운드
 
 function change(e) {
+    // 8강 시작
     if (roundNum == 8) {
         if (e.id === "img1") {
             Arr[indexNum]++;
@@ -62,7 +65,6 @@ function change(e) {
             Arr[indexNum + 1]++;
         }
         indexNum += 2;
-
 
         if (indexNum >= 8) {
             for (let i = 0; i < 8; i++) {
@@ -77,10 +79,14 @@ function change(e) {
                     i--;
                 }
             }
+            // 8강 끝났을 떄
 
+
+            // 4강으로 전환
             indexNum = 0;
             roundNum = 4;
             
+            // 배열 랜덤 x
             for (let i = 0; i < 4; i++) {
                 sum[i] = files[i];
             }
@@ -94,11 +100,12 @@ function change(e) {
             img2.src = imgs4[indexNum + 1].src
             round.innerHTML = "<div>4강</div>"
         }
+        // 8강이 계속 되고있을 때
         else if (indexNum < 8) {
             img1.src = imgs8[indexNum].src;
             img2.src = imgs8[indexNum + 1].src;
         }
-    } // 8강
+    } // 4강 시작 + 8강 시작 끝
     else if (roundNum == 4) {
         if (e.id === "img1") {
             Arr[indexNum]++;
@@ -108,7 +115,7 @@ function change(e) {
 
         indexNum += 2;
 
-
+        // 4강 끝났을 때
         if (indexNum >= 4) {
             for (let i = 0; i < 4; i++) {
                 if (Arr[i] == 1) {
