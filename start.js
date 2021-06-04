@@ -58,7 +58,7 @@ let roundNum = 8;
 
 function change(e) {
     // 8강 시작
-    if (roundNum == 8) {
+    if (roundNum == 8) { // 여기에 ... 
         if (e.id === "img1") {
             Arr[indexNum]++;
         } else {
@@ -98,11 +98,11 @@ function change(e) {
 
             img1.src = imgs4[indexNum].src
             img2.src = imgs4[indexNum + 1].src
-            round.innerHTML = "<div>4강</div>"
+            round.innerHTML = `<div>강</div>`
         }
         // 8강이 계속 되고있을 때
-        else if (indexNum < 8) {
-            img1.src = imgs8[indexNum].src;
+        else if (indexNum < 8) { //indexNum 비교값 8
+            img1.src = imgs8[indexNum].src; // imgs8
             img2.src = imgs8[indexNum + 1].src;
         }
     } // 4강 시작 + 8강 시작 끝
