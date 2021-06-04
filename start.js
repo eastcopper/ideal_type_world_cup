@@ -20,7 +20,8 @@ for (var i = 0; i < 8; i++) {
 let sum = [];
 let sum1 = [];
 
-let length = files.length
+let length = files.length;
+let number = files.length;
 
 Array.prototype.shuffle = function () {
     while (length) {
@@ -58,7 +59,7 @@ let roundNum = 8;
 
 function change(e) {
     // 8강 시작
-    if (roundNum == 8) { // 여기에 ... 
+    if (roundNum == number) { // 여기에 ... 
         if (e.id === "img1") {
             Arr[indexNum]++;
         } else {
@@ -79,7 +80,7 @@ function change(e) {
                     i--;
                 }
             }
-            // 8강 끝났을 떄
+            // 8강 끝났을 때
 
 
             // 4강으로 전환
@@ -98,15 +99,14 @@ function change(e) {
 
             img1.src = imgs4[indexNum].src
             img2.src = imgs4[indexNum + 1].src
-            round.innerHTML = `<div>강</div>`
+            round.innerHTML = `<div>4강</div>`
         }
         // 8강이 계속 되고있을 때
-        else if (indexNum < 8) { //indexNum 비교값 8
-            img1.src = imgs8[indexNum].src; // imgs8
-            img2.src = imgs8[indexNum + 1].src;
+        else if (indexNum < 8) { //indexNum
+            imageLoad8()
         }
     } // 4강 시작 + 8강 시작 끝
-    else if (roundNum == 4) {
+    else if (roundNum == number / 2) {
         if (e.id === "img1") {
             Arr[indexNum]++;
         } else {
@@ -147,11 +147,10 @@ function change(e) {
             round.innerHTML = "<div>결승</div>"
         }
         else if (indexNum < 4) {
-            img1.src = imgs4[indexNum].src;
-            img2.src = imgs4[indexNum + 1].src;
+            imageLoad4();
         }
     } // 4강
-    else if (roundNum == 2) {
+    else if (roundNum == number / 4) {
         if (e.id === "img1") {
             img2.remove();
             round.innerHTML = "<div>우승</div>"
@@ -160,4 +159,14 @@ function change(e) {
             round.innerHTML = "<div>우승</div>"
         }
     } // 결승
+}
+
+function imageLoad4() {
+    img1.src = imgs4[indexNum].src;
+    img2.src = imgs4[indexNum + 1].src;
+}
+
+function imageLoad8() {
+    img1.src = imgs8[indexNum].src;
+    img2.src = imgs8[indexNum + 1].src;
 }
