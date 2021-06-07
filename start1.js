@@ -1,7 +1,10 @@
 const img1 = document.getElementById("1");
 const img2 = document.getElementById("2");
 const round = document.getElementById("round");
-const MAX_ROUND = 2;
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+const MAX_ROUND = 8;
 let NowRound = MAX_ROUND;
 let files = [];
 let index = 0;
@@ -77,4 +80,10 @@ function change(e) {
         img2.src = arr[index + 1];
         index += 2;
     }
+}
+btn.onclick = function () {
+    modal.style.display = "block";
+}
+span.onclick = function () {
+    modal.style.display = "none";
 }
