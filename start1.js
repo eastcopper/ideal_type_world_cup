@@ -1,9 +1,9 @@
 const img1 = document.getElementById("1");
 const img2 = document.getElementById("2");
 const round = document.getElementById("round");
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("myModal");
+const span = document.getElementsByClassName("close")[0];
+const restart = document.getElementById("restart");
 const MAX_ROUND = 8;
 let NowRound = MAX_ROUND;
 let files = [];
@@ -87,4 +87,7 @@ span.onclick = function () {
 function scene() {
     round.innerHTML = `우승`;
     modal.style.display = "block";
+}
+restart.onclick = function () {
+    location.reload();
 }
