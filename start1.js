@@ -43,16 +43,16 @@ function final() {
     img1.addEventListener('click', function () {
         img2.remove();
         img1.src = arr[0];
-        round.innerHTML = `우승`;
+        scene(); // 모달 창 띄우기
     })
     img2.addEventListener('click', function () {
         img1.remove();
         img2.src = arr[1];
-        round.innerHTML = `우승`;
+        scene();
     })
 }
 if (NowRound === 2) {
-    final();
+    final(); // 마지막 라운드 시작
 }
 function change(e) {
     if (NowRound !== 1) {
@@ -81,9 +81,10 @@ function change(e) {
         index += 2;
     }
 }
-btn.onclick = function () {
-    modal.style.display = "block";
-}
 span.onclick = function () {
     modal.style.display = "none";
+}
+function scene() {
+    round.innerHTML = `우승`;
+    modal.style.display = "block";
 }
