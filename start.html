@@ -9,8 +9,8 @@
     <style>
         img {
             margin-top: 100px;
-            width: 500px;
-            height: 500px;
+            width: 450px;
+            height: 450px;
         }
     </style>
     <link rel="stylesheet" href="./start.css">
@@ -19,13 +19,18 @@
 <body>
     <main>
         <div>
-            <h1 id="round">8강</h1>
-        <img id="img1" onclick="change(this)" src="" alt="" class="1">
-        <img id="img2" onclick="change(this)" src="" alt="" class="2">
+            <h1 id="round"></h1>
+            <img id="1" onclick="change(this)" src="" alt="" class="1">
+            <img id="2" onclick="change(this)" src="" alt="" class="2">
         </div>
-        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p><button id="restart">다시시작</button></p>
+            </div>
+        </div>
     </main>
-    <script src="./start.js"></script>
+    <script src="./start1.js"></script>
 </body>
 
 </html>
